@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "br.com.zupproject";
+option java_outer_classname = "Pix";
+option objc_class_prefix = "HLW";
+
+package br.com.zupproject;
+
+service PixService {
+  rpc cadastraChave(PixRequest) returns (PixResponse) {}
+}
+
+message PixRequest {
+  enum TipoChave {
+    INDEFINIDO = 0;
+    CPF = 1;
+    TELEFONE_CELULAR = 2;
+    EMAIL = 3;
+    CHAVE_ALEATORIA = 4;
+  }
+
+  enum TipoConta {
+    DESCONHECIDO = 0;
+    CONTA_CORRENTE = 1;
+    CONTA_POUPANCA = 2;
+  }
+
+  string codigoCliente = 1;
+  TipoChave tipoChave = 2;
+  string chave = 3;
+  TipoConta tipoConta = 4;
+}
+
+message PixResponse {
+  string  clientId= 1;
+  string chavePix = 2;
+}
