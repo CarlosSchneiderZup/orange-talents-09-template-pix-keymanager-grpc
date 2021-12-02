@@ -34,13 +34,14 @@ enum class TipoDeChave() {
     ALEATORIO();
 
     companion object {
-        fun getTipoDeChave(tipoChave: PixRequest.TipoChave): TipoDeChave {
+        fun getTipoDeChave(tipoChave: PixRequest.TipoChave): TipoDeChave? {
             when (tipoChave) {
                 PixRequest.TipoChave.CPF -> return CPF
                 PixRequest.TipoChave.TELEFONE_CELULAR -> return TELEFONE
                 PixRequest.TipoChave.EMAIL -> return EMAIL
+                PixRequest.TipoChave.CHAVE_ALEATORIA -> return ALEATORIO
                 else -> {
-                    return ALEATORIO
+                    return null
                 }
             }
         }
@@ -52,11 +53,12 @@ enum class TipoDeConta(val tipoInformado: PixRequest.TipoConta) {
     CONTA_POUPANCA(PixRequest.TipoConta.CONTA_POUPANCA);
 
     companion object {
-        fun getTipoDeConta(tipoConta: PixRequest.TipoConta): TipoDeConta {
+        fun getTipoDeConta(tipoConta: PixRequest.TipoConta): TipoDeConta? {
             when (tipoConta) {
                 PixRequest.TipoConta.CONTA_CORRENTE -> return CONTA_CORRENTE
+                PixRequest.TipoConta.CONTA_POUPANCA -> return CONTA_POUPANCA
                 else -> {
-                    return CONTA_POUPANCA
+                    return null
                 }
             }
         }

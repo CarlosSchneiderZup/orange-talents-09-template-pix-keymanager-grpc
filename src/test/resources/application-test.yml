@@ -1,4 +1,16 @@
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql: true
+
 datasources:
   default:
-    url: jdbc:tc:mysql:8:///db
-    driverClassName: org.testcontainers.jdbc.ContainerDatabaseDriver
+    url: jdbc:h2:mem:devDb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: ''
+    dialect: H2
+jpa.default.properties.hibernate.hbm2ddl.auto: update
