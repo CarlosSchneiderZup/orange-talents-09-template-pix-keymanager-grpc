@@ -9,6 +9,4 @@ class Conta(
     val cpfTitular: String,
     val agencia: String,
     val numero: String
-) {
-
-}
+)
