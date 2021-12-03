@@ -1,6 +1,7 @@
 package br.com.zupproject.entities
 
 import br.com.zupproject.PixRequest
+import org.hibernate.annotations.Type
 import java.util.*
 import javax.persistence.*
 import javax.validation.constraints.NotBlank
@@ -14,6 +15,7 @@ class ChavePix(
     @Id
     val pixId: String?,
     @field:NotNull
+    @Type(type="org.hibernate.type.UUIDCharType")
     @Column(nullable = false)
     val idCliente: UUID?,
     @field:NotNull

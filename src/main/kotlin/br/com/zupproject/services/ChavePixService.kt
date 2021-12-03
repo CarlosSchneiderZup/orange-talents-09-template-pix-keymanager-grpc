@@ -25,8 +25,8 @@ class ChavePixService(
         @Valid novaChavePix: NovaChavePix
     ): ChavePix {
 
-        for (validador in validadorDeChavePix) {
-            validador.valida(request = novaChavePix)
+        validadorDeChavePix.forEach {
+             it.valida(request = novaChavePix)
         }
 
         if (novaChavePix.chaveInformada != null && repository.existsByPixId(novaChavePix.chaveInformada)) {

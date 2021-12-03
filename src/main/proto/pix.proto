@@ -11,6 +11,20 @@ service PixService {
   rpc cadastraChave(PixRequest) returns (PixResponse) {}
 }
 
+service RemoveChavePixService {
+  rpc removeChave(RemoveChavePixRequest) returns(RemoveChavePixResponse) {}
+}
+
+message RemoveChavePixRequest {
+  string idUsuario = 1;
+  string chavePix = 2;
+}
+
+message RemoveChavePixResponse {
+    string idUsuario = 1;
+    bool confirmacaoRemocao = 2;
+}
+
 message PixRequest {
   enum TipoChave {
     INDEFINIDO = 0;
@@ -33,6 +47,6 @@ message PixRequest {
 }
 
 message PixResponse {
-  string  clientId= 1;
+  string  clientId = 1;
   string chavePix = 2;
 }

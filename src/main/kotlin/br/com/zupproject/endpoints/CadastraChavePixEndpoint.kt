@@ -14,7 +14,7 @@ import jakarta.inject.Singleton
 import javax.validation.ConstraintViolationException
 
 @Singleton
-class ChavePixEndpoint(
+class CadastraChavePixEndpoint(
     val chavePixService: ChavePixService,
 ) : PixServiceGrpc.PixServiceImplBase() {
 
